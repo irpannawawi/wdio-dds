@@ -29,10 +29,15 @@ class OpentabPage {
 
     
     async openAll(){
+        await $('/html/body/main/div/div/div/form/div[1]/span').waitForDisplayed()
         await $('/html/body/main/div/div/div/form/div[1]/span').click()
+        await $('/html/body/main/div/div/div/form/div[2]/span').waitForDisplayed()
         await $('/html/body/main/div/div/div/form/div[2]/span').click()
+        await $('/html/body/main/div/div/div/form/div[3]/span').waitForDisplayed()
         await $('/html/body/main/div/div/div/form/div[3]/span').click()
+        await $('/html/body/main/div/div/div/form/div[4]/span').waitForDisplayed()
         await $('/html/body/main/div/div/div/form/div[4]/span').click()
+        await $('/html/body/main/div/div/div/form/div[5]/span').waitForDisplayed()
         await $('/html/body/main/div/div/div/form/div[5]/span').click()
     }
 }
