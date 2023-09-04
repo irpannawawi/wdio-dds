@@ -1,15 +1,15 @@
 import pyautogui
 import time as t
 # n = tgl awal
-n=24
+n=1
 pyautogui.hotkey('alt', 'tab')
-libur = [27]
-while n <= 29:
+libur = [3]
+while n <= 5:
     if n in libur:
         n+=1
         continue
     else:
-        tgl = '2023-08-'
+        tgl = '2023-09-'
         if(len(str(n))<2):
             tgl = tgl+'0'+str(n)
         else:
@@ -27,8 +27,8 @@ while n <= 29:
         pyautogui.press('enter')
         pyautogui.write(tgl) # type: ignore
         pyautogui.press('enter')
-        pyautogui.write(tgl) # type: ignore
-        pyautogui.press('enter')
+        # pyautogui.write(tgl) # type: ignore
+        # pyautogui.press('enter')
         # pyautogui.write(tgl) # type: ignore
         # pyautogui.press('enter')
         # pyautogui.write(tgl) # type: ignore

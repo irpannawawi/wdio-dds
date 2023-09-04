@@ -17,9 +17,9 @@ import OpentabPage from '../pageobjects/opentab.page.js'
 import FillTab from '../pageobjects/filltab.js'
 import xlsx from 'node-xlsx';
 
-const CONF_KECAMATAN = 'Rajadesa'
-const CONF_DESA = 'Tanjungsari'
-const CONF_SESI = 3
+const CONF_KECAMATAN = 'Panjalu'
+const CONF_DESA = 'Sandingtaman'
+const CONF_SESI = 1
 const CONF_START_ROW = 2
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 function generateString(length) {
@@ -38,7 +38,7 @@ describe('My Bosv2 application'+CONF_KECAMATAN+CONF_DESA, async () => {
 
     })
 
-    const workSheetsFromFile = xlsx.parse('./test/list/' + CONF_KECAMATAN.toUpperCase() + '/' + CONF_DESA.toLowerCase() + '/list_' + CONF_DESA.toLowerCase() + '_' + CONF_SESI + '.xlsx');
+    const workSheetsFromFile = xlsx.parse('./test/list/' + CONF_KECAMATAN.toLowerCase() + '/' + CONF_DESA.toLowerCase() + '/list_' + CONF_DESA.toLowerCase() + '_' + CONF_SESI + '.xlsx');
 
     workSheetsFromFile[0].data.forEach((value, index) => {
         if (index == 0 || index < CONF_START_ROW) {
@@ -56,7 +56,7 @@ describe('My Bosv2 application'+CONF_KECAMATAN+CONF_DESA, async () => {
         var rt = value[4]
         var rw = value[5]
         var dusun = value[3]
-        var keterangan = value[7] + ' #' + generateString(20)
+        var keterangan = value[7] + ' #' + generateString(10)
         var tanggal = value[1]
 
         it('insert data ' + index, async () => {
