@@ -55,7 +55,7 @@ export const config = {
     capabilities: [{
         browserName: 'chrome',
         'goog:chromeOptions': {
-            args: ['disable-gpu', '--user-data-dir=C:/Users/Irpan/AppData/Local/Google/Chrome/User Data', '--profile-directory=Default']
+            args: ['disable-gpu', '--user-data-dir=C:/Users/Admin/AppData/Local/Google/Chrome/User Data', '--profile-directory=Default']
         }
     }],
 

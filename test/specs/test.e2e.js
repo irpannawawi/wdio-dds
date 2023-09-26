@@ -17,9 +17,9 @@ import OpentabPage from '../pageobjects/opentab.page.js'
 import FillTab from '../pageobjects/filltab.js'
 import xlsx from 'node-xlsx';
 
-const CONF_KECAMATAN = 'Panjalu'
-const CONF_DESA = 'Sandingtaman'
-const CONF_SESI = 1
+const CONF_KECAMATAN = 'Sukamantri'
+const CONF_DESA = 'Sukamantri'
+const CONF_SESI = 
 const CONF_START_ROW = 2
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 function generateString(length) {
