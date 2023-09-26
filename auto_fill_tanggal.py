@@ -1,10 +1,10 @@
 import pyautogui
 import time as t
 # n = tgl awal
-n=1
+n=9
 pyautogui.hotkey('alt', 'tab')
-libur = [3]
-while n <= 5:
+libur = [3,10,17,24]
+while n <= 26:
     if n in libur:
         n+=1
         continue
