@@ -1,10 +1,10 @@
 import pyautogui
 import time as t
 # n = tgl awal
-n=1
+n=10
 pyautogui.hotkey('alt', 'tab')
 libur = [8,15,22,29]
-while n <= 9:
+while n <= 24:
     if n in libur:
         n+=1
         continue
@@ -23,12 +23,12 @@ while n <= 9:
         pyautogui.press('enter')
         pyautogui.write(tgl) # type: ignore
         pyautogui.press('enter')
-        pyautogui.write(tgl) # type: ignore
-        pyautogui.press('enter')
-        pyautogui.write(tgl) # type: ignore
-        pyautogui.press('enter')
-        pyautogui.write(tgl) # type: ignore
-        pyautogui.press('enter')
+        # pyautogui.write(tgl) # type: ignore
+        # pyautogui.press('enter')
+        # pyautogui.write(tgl) # type: ignore
+        # pyautogui.press('enter')
+        # pyautogui.write(tgl) # type: ignore
+        # pyautogui.press('enter')
         # pyautogui.write(tgl) # type: ignore
         # pyautogui.press('enter')
         # pyautogui.write(tgl) # type: ignore
