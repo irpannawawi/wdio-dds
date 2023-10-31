@@ -20,7 +20,7 @@ import xlsx from 'node-xlsx';
 const CONF_KECAMATAN = 'Panjalu'
 const CONF_DESA = 'Sandingtaman'
 const CONF_SESI = 2
-const CONF_START_ROW = 47
+const CONF_START_ROW = 10
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 function generateString(length) {
     let result = ' ';
