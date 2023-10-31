@@ -98,8 +98,11 @@ class FillTab {
         await browser.execute(()=>{
             $('#collapseCatatanKunjunganWarga').collapse('show')
         })
+        let tanggal = tgl.split('-')
         await $('#tanggal').waitForDisplayed()
-        await $('#tanggal').setValue(tgl)
+        await browser.execute((tanggal)=>{
+            $('#tanggal').val(tanggal)
+        }, tgl)
     }
 
     async fill_tab3(nama) {
