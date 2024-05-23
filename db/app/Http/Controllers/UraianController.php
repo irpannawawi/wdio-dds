@@ -16,20 +16,18 @@ class UraianController extends Controller
     public function create()
     {
         $inputFileName = base_path() . '/uraian.xlsx';
-
         /** Load $inputFileName to a Spreadsheet Object  **/
         $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Xlsx');
         $spreadsheet->setLoadSheetsOnly('Sheet1');
         $spd = $spreadsheet->load($inputFileName);
         foreach($spd->getActiveSheet()->toArray() as $data){
-            Uraian::updateOrCreate([
-                'keterangan' => $data[0],
-                'tags' => $data[1]
-            ], [
-                'keterangan' => $data[0],
-                'tags' => $data[1]
-            ]);
-
+            // Uraian::updateOrCreate([
+            //     'keterangan' => $data[0],
+            //     'tags' => $data[1]
+            // ], [
+            //     'keterangan' => $data[0],
+            //     'tags' => $data[1]
+            // ]);
         }
     }
 

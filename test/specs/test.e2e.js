@@ -23,8 +23,8 @@ import OpentabPage from '../pageobjects/opentab.page.js'
 import FillTab from '../pageobjects/filltab.js'
 import xlsx from 'node-xlsx';
 
-const CONF_KECAMATAN = 'Rajadesa'
-const CONF_DESA = 'Sirnabaya'
+const CONF_KECAMATAN = 'Cisaga'
+const CONF_DESA = 'Mekarmukti'
 const CONF_SESI = 1
 const CONF_START_ROW = 2
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
