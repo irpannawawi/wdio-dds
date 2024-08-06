@@ -5,12 +5,14 @@ import OpentabPage from './opentab.page.js';
 
 class FillTab {
     async fill_tab1(nama, provinsi, kabupaten, kecamatan, desa, dusun, rt, rw) {
-
+        await Promise.all([
+             //  Tab 1
+             OpentabPage.tab.waitForDisplayed(),
+             OpentabPage.tab.click(),
+        ]);
         // open page
         await Promise.all([
-            //  Tab 1
-            OpentabPage.tab.waitForDisplayed(),
-            OpentabPage.tab.click(),
+           
             $('#nama_kepala_keluarga').addValue(nama),
             browser.execute(async (kab,kec, ds) => {
                 await axios.post("https://bos.polri.go.id/laporan/buat-laporan/kota", { id: 32 })
@@ -96,9 +98,12 @@ class FillTab {
 
         let tanggal = tgl.split('-')
         await Promise.all([
-            //  Tab 1
+            //  Tab 2
             OpentabPage.tab2.waitForDisplayed(),
             OpentabPage.tab2.click(),
+            
+        ])
+        await Promise.all([
             // browser.execute(()=>{
             //     $('#collapseCatatanKunjunganWarga').collapse('show')
             // }),
@@ -112,7 +117,9 @@ class FillTab {
     async fill_tab3(nama) {
         await Promise.all([
             OpentabPage.tab3.waitForDisplayed(),
-            OpentabPage.tab3.click(),
+            OpentabPage.tab3.click(),    
+        ])
+        await Promise.all([
             $('#nama_penerima_kunjungan').setValue(nama),
             $('#status_penerima_kunjungan').selectByAttribute('value', 'kepala keluarga')
         ])
@@ -123,6 +130,8 @@ class FillTab {
             console.log('tab 4'),
             OpentabPage.tab4.waitForDisplayed(),
             OpentabPage.tab4.click(),
+        ])
+        await Promise.all([
             console.log('tab 4 done'),
             $('#bidang-keluhan').selectByAttribute('value', 'EKONOMI'),
             $('#uraian-keluhan').setValue(keterangan),
@@ -133,6 +142,8 @@ class FillTab {
                 $('#keyword_keluhan').change()
                 $('#keyword_keluhan').trigger('change')
             }),
+            OpentabPage.tab4.click(),
+
         ])
 
     }
@@ -140,7 +151,9 @@ class FillTab {
     async fill_tab5(keterangan) {
         await Promise.all([
             OpentabPage.tab5.waitForDisplayed(),
-            OpentabPage.tab5.click(),
+            OpentabPage.tab5.click(),    
+        ])
+        await Promise.all([
             console.log('tab 5'),
             
             $('#ekonomi').click(),
@@ -148,7 +161,7 @@ class FillTab {
             console.log('tab 5 done'),
             
         ])
-        browser.execute(async () => {
+        await browser.execute(async () => {
             await $('#select-keyword-informasi').val('Warga Berpenghasilan Rendah')
             await $('#select-keyword-informasi').change()
             await $('#select-keyword-informasi').trigger('change')

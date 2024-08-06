@@ -53,9 +53,9 @@ export const config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'edge',
+        browserName: 'firefox',
         // 'goog:chromeOptions': {
-        //     args: ['disable-gpu', '--user-data-dir=C:/Users/Irpan/AppData/Local/Google/Chrome/User Data', '--profile-directory=Default']
+        //     args: ['disable-gpu', '--user-data-dir=C:/Users/nawawi/AppData/Local/Google/Chrome/User Data', '--profile-directory=Default']
         // }
     }],
 
@@ -66,7 +66,7 @@ export const config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'trace',
+    logLevel: 'error',
     //
     // Set specific log levels per logger
     // loggers:
@@ -128,7 +128,7 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec', 'dot'],
+    reporters: ['spec'],
     onComplete: function() {
         const reportError = new Error('Could not generate Allure report')
         const generation = allure(['generate', 'allure-results', '--clean'])

@@ -4,7 +4,7 @@
 // # sukamantri
 // # 88080845 
 
-// # mekarwangi
+// # mekarwangi --- BL
 // # 80061023
 
 // # rajadesa
@@ -23,10 +23,9 @@ import OpentabPage from '../pageobjects/opentab.page.js'
 import FillTab from '../pageobjects/filltab.js'
 import xlsx from 'node-xlsx';
 
-const CONF_KECAMATAN = 'Cisaga'
-const CONF_DESA = 'Mekarmukti'
-const CONF_SESI = 1
-const CONF_START_ROW = 2
+const CONF_KECAMATAN = 'Rajadesa'
+const CONF_DESA = 'Tanjungsari'
+const CONF_START_ROW = 248
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 function generateString(length) {
     let result = ' ';
@@ -37,7 +36,7 @@ function generateString(length) {
 
     return result;
 }
-const workSheetsFromFile = xlsx.parse('./test/list/' + CONF_KECAMATAN.toLowerCase() + '/' + CONF_DESA.toLowerCase() + '/list_' + CONF_DESA.toLowerCase() + '_' + CONF_SESI + '.xlsx');
+const workSheetsFromFile = xlsx.parse('./test/list/' + CONF_KECAMATAN.toLowerCase() + '/' + CONF_DESA.toLowerCase() + '/list_' + CONF_DESA.toLowerCase() +'.xlsx');
 
 describe('My Bosv2 application' + CONF_KECAMATAN + CONF_DESA, async () => {
     it('Open the browser', async () => {
@@ -65,12 +64,25 @@ describe('My Bosv2 application' + CONF_KECAMATAN + CONF_DESA, async () => {
         var tanggal = value[1]
 
         it('insert data ' + index, async () => {
-            try {
-
+         
                 console.log({ 'working on': index })
                 // open input page
-                await $('/html/body/main/div[1]/div/div/div[1]/div/div/a').waitForExist()
-                await $('/html/body/main/div[1]/div/div/div[1]/div/div/a').click()
+                try{
+                    await $('/html/body/main/div[1]/div/div/div[1]/div/div/a').waitForExist()
+                    await $('/html/body/main/div[1]/div/div/div[1]/div/div/a').click()
+
+                }catch(e){
+                    console.log(e)
+                }
+
+                it('should scroll tab 1', async () => {
+                    const elem = await $('/html/body/main/div/div/div/form/div[1]/span');
+                    // scroll to specific element
+                    await elem.scrollIntoView();
+                    // center element within the viewport
+                    await elem.scrollIntoView({ block: 'center', inline: 'center' });
+                });
+
                 // // fill data kepala keluarga tab 1
                 await FillTab.fill_tab1(nama, provinsi, kabupaten, kecamatan, desa, dusun, rt, rw)
 
@@ -82,17 +94,26 @@ describe('My Bosv2 application' + CONF_KECAMATAN + CONF_DESA, async () => {
 
                 await FillTab.fill_tab4(keterangan)
 
-                await FillTab.fill_tab5(keterangan)
-
-                await FillTab.finish()
+                it('should scroll tab 5', async () => {
+                    const elem = await $('/html/body/main/div/div/div/form/div[5]/span');
+                    // scroll to specific element
+                    await elem.scrollIntoView();
+                    // center element within the viewport
+                    await elem.scrollIntoView({ block: 'center', inline: 'center' });
+                    await FillTab.fill_tab5(keterangan)
+                });
+                it('should scroll to finish button', async () => {
+                    const elem = await $('//*[@id="form_dds_warga"]/div[6]/button[2]');
+                    // scroll to specific element
+                    await elem.scrollIntoView();
+                    // center element within the viewport
+                    await elem.scrollIntoView({ block: 'center', inline: 'center' });
+                    await FillTab.finish()
+                });
 
                 await FillTab.close_modal()
 
-            }
-            catch (e) {
-                console.log(e)
-                await browser.url('https://bos.polri.go.id/laporan/dds-warga');
-            }
+           
         })
     })
 
